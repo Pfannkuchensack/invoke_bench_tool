@@ -1,0 +1,23 @@
+# Stable Diffusion 2 Benchmark
+# Adjust model_name to match your installed model.
+# Use `invokeai-bench list-models --base sd-2` to see available models.
+
+[connection]
+host = "http://127.0.0.1:9090"
+
+[defaults]
+warmup_runs = 1
+iterations = 3
+seed = 42
+positive_prompt = "a photo of a mountain landscape at golden hour, highly detailed"
+negative_prompt = "blurry, bad quality, worst quality"
+
+[[scenario]]
+name = "sd2_768_txt2img"
+type = "txt2img"
+base = "sd-2"
+model_name = "stable-diffusion-2-1"
+width = 768
+height = 768
+steps = 20
+cfg_scale = 7.5

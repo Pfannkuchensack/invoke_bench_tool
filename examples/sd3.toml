@@ -1,0 +1,23 @@
+# Stable Diffusion 3 Benchmark
+# Adjust model_name to match your installed model.
+# Use `invokeai-bench list-models --base sd-3` to see available models.
+
+[connection]
+host = "http://127.0.0.1:9090"
+
+[defaults]
+warmup_runs = 1
+iterations = 3
+seed = 42
+positive_prompt = "a photo of a mountain landscape at golden hour, highly detailed"
+negative_prompt = "blurry, bad quality, worst quality"
+
+[[scenario]]
+name = "sd3_1024_txt2img"
+type = "txt2img"
+base = "sd-3"
+model_name = "stable-diffusion-3.5-large"
+width = 1024
+height = 1024
+steps = 28
+cfg_scale = 3.5

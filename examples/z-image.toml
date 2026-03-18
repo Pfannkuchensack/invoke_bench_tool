@@ -1,0 +1,24 @@
+# Z-Image Benchmark
+# Adjust model_name to match your installed model.
+# Use `invokeai-bench list-models --base z-image` to see available models.
+# Note: Z-Image models require Qwen3 encoder submodels to be installed.
+
+[connection]
+host = "http://127.0.0.1:9090"
+
+[defaults]
+warmup_runs = 1
+iterations = 3
+seed = 42
+positive_prompt = "a photo of a mountain landscape at golden hour, highly detailed"
+negative_prompt = ""
+
+[[scenario]]
+name = "z_image_turbo_1024_txt2img"
+type = "txt2img"
+base = "z-image"
+model_name = "Z-Image-Turbo"
+width = 1024
+height = 1024
+steps = 8
+cfg_scale = 1.0

@@ -1,0 +1,25 @@
+# FLUX.1 Benchmark
+# Adjust model_name to match your installed model.
+# Use `invokeai-bench list-models --base flux` to see available models.
+# Note: FLUX models require T5 encoder and CLIP embed submodels to be installed.
+
+[connection]
+host = "http://127.0.0.1:9090"
+
+[defaults]
+warmup_runs = 1
+iterations = 3
+seed = 42
+positive_prompt = "a photo of a mountain landscape at golden hour, highly detailed"
+negative_prompt = ""
+
+[[scenario]]
+name = "flux_dev_1024_txt2img"
+type = "txt2img"
+base = "flux"
+model_name = "FLUX.1-dev"
+width = 1024
+height = 1024
+steps = 20
+cfg_scale = 1.0
+guidance = 4.0

@@ -1,0 +1,23 @@
+# Stable Diffusion XL Benchmark
+# Adjust model_name to match your installed model.
+# Use `invokeai-bench list-models --base sdxl` to see available models.
+
+[connection]
+host = "http://127.0.0.1:9090"
+
+[defaults]
+warmup_runs = 1
+iterations = 3
+seed = 42
+positive_prompt = "a photo of a mountain landscape at golden hour, highly detailed"
+negative_prompt = "blurry, bad quality, worst quality"
+
+[[scenario]]
+name = "sdxl_1024_txt2img"
+type = "txt2img"
+base = "sdxl"
+model_name = "stable-diffusion-xl-base-1-0"
+width = 1024
+height = 1024
+steps = 30
+cfg_scale = 7.0
